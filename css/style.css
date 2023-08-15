@@ -1,0 +1,317 @@
+:root {
+  --defaultDark: #1e3050;
+  --defaultLight: #f2f5f6;
+  --lightBgColorDark: #c7d7f0;
+  --lightBgColorLight: #f2f5f6;
+  --boxBg: linear-gradient(to bottom left, var(--lightBgColorLight), var(--lightBgColorDark));
+  --sliderIcon: url(https://raw.githubusercontent.com/ian-mendes02/resources/579c7eaf8d884ab291678e5473e59c61ec092318/logos/sun-dark.svg);
+  --sliderBgColor: var(--defaultDark);
+  --sliderColor: var(--defaultLight);
+  --profilePic: url(../img/perfil.png);
+}
+
+[data-theme=dark] {
+  --defaultDark: #f2f5f6;
+  --defaultLight: #1e3050;
+  --lightBgColorDark: #2f5075;
+  --lightBgColorLight: #5e8ec5;
+  --sliderBgColor: var(--defaultDark);
+  --sliderColor: var(--lightBgColorLight);
+  --boxBg: linear-gradient(to bottom left, var(--lightBgColorLight), var(--lightBgColorDark));
+  --sliderIcon: url(https://raw.githubusercontent.com/ian-mendes02/resources/28f57a0388967d45cdd421fad23108af82f0688d/logos/moon.svg);
+  --profilePic: url(../img/perfil-dark.png);
+}
+
+[data-theme-toggle=container] {
+  --buttonWidth: 3vw;
+  width: var(--buttonWidth);
+  aspect-ratio: 3/1.5;
+  margin: 1vw;
+  border-radius: calc(var(--buttonWidth) * 10);
+  background-color: var(--sliderBgColor);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2.5px 10px -1px inset, rgba(0, 0, 0, 0.3) 0px 0.75px 2px -1.5px inset;
+  border: solid 0.1vw rgba(255, 255, 255, 0.4470588235);
+  position: relative;
+  cursor: pointer;
+}
+
+[data-theme-toggle=container] [data-theme-toggle=slider] {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  top: 50%;
+  transform: translate(-10%, -50%);
+  width: calc(var(--buttonWidth) / 1.5);
+  height: calc(var(--buttonWidth) / 1.5);
+  background-color: var(--sliderColor);
+  background-image: var(--sliderIcon);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: filter 0.1s ease-in, left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: absolute;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: 50%;
+  transform: translate(-10%, -50%);
+}
+
+[data-theme=dark] [data-theme-toggle=slider] {
+  left: calc(var(--buttonWidth) / 2);
+}
+
+[data-theme=light] [data-theme-toggle=slider] {
+  left: 0;
+}
+
+[data-theme-toggle=container] [data-theme-toggle=slider]:hover {
+  filter: brightness(98%);
+}
+
+body, html {
+  font-family: "Bahnschrift", sans-serif;
+  color: var(--defaultDark);
+  background-color: var(--defaultLight);
+  background-image: var(--boxBg);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+section {
+  position: relative;
+  padding: 2.5vw 0;
+}
+
+.content {
+  max-width: 100%;
+}
+
+.content-default {
+  display: flex;
+  margin: auto;
+  width: 80%;
+}
+
+.wrapper {
+  display: flex;
+  flex-basis: content;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, span, p, img {
+  display: block;
+}
+
+img {
+  user-select: none;
+}
+
+h1 {
+  font-size: 1.5vw;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.25vw;
+  font-weight: 500;
+}
+
+p, span {
+  font-size: 1vw;
+  font-weight: 300;
+}
+
+mark {
+  background: transparent;
+}
+
+.blue {
+  color: #0986bf;
+}
+
+.divider {
+  height: 0.05vw;
+  flex-grow: 1;
+  margin: auto 2vw;
+  background-image: radial-gradient(var(--defaultDark), rgba(255, 255, 255, 0));
+  opacity: 0.5;
+}
+
+#logo {
+  user-select: none;
+}
+
+.topnav {
+  background-color: #2f5075;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.topnav a {
+  color: #fff;
+  user-select: none;
+  font-size: 2vw;
+  margin: auto 1vw;
+  cursor: pointer;
+  transition: 0.1s ease-out;
+}
+.topnav a:hover {
+  filter: brightness(125%);
+}
+.topnav .content-default {
+  justify-content: end;
+}
+
+[data-theme=dark] .topnav {
+  background-color: #1e3050;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+#name-jumbo {
+  font-family: "Lucida Console", sans-serif;
+  letter-spacing: -5px;
+  font-size: 4.5vw;
+  font-weight: 700;
+}
+#name-jumbo:before, #name-jumbo::after {
+  color: var(--defaultDark);
+}
+#name-jumbo::before {
+  content: "<";
+}
+#name-jumbo::after {
+  content: "/" ">";
+}
+
+[data-theme=dark] #name-jumbo {
+  color: #adff2f;
+}
+[data-theme=dark] #name-jumbo .blue {
+  color: rgb(0, 183, 255);
+}
+
+.profile {
+  user-select: none;
+  padding-bottom: 0;
+}
+.profile .content .content-default {
+  justify-content: center;
+}
+.profile .content .content-default .wrapper {
+  align-items: center;
+  flex-basis: 0;
+}
+.profile .content .content-default img {
+  width: 32vw;
+  margin: 0;
+}
+.profile .content .content-default span, .profile .content .content-default p {
+  margin: 1vw 0;
+  display: inline-flex;
+}
+.profile .content .content-default p {
+  line-height: 64pt;
+}
+
+#profile-pic {
+  height: 25vw;
+  width: 25vw;
+  background-image: var(--profilePic);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.portfolio {
+  background-color: var(--defaultLight);
+  padding-top: 0;
+  margin: 0 2vw;
+  border-radius: 1vw 1vw 0 0;
+}
+
+#navlinks {
+  justify-content: center;
+}
+#navlinks .container {
+  margin: 1vw;
+  align-items: center;
+}
+#navlinks button {
+  border-radius: 50%;
+  border: none;
+  aspect-ratio: 1;
+  width: 3vw;
+  background-color: #2f5075;
+  transition: 0.2s ease-out;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+#navlinks button:hover {
+  filter: brightness(90%);
+  transform: scale(101%);
+}
+#navlinks button:active {
+  transform: scale(99%);
+}
+#navlinks button i {
+  color: #fff;
+  font-size: 1.5vw;
+}
+
+.portfolio .content-default {
+  flex-direction: column;
+}
+.portfolio #portfolio-pages {
+  flex-flow: row wrap;
+}
+.portfolio .container {
+  background-image: var(--boxBg);
+  border-radius: 0.5vw;
+  overflow: hidden;
+  width: 20vw;
+  position: relative;
+  user-select: none;
+  transition: 0.2s ease-out;
+  backface-visibility: hidden;
+  transform-origin: center center;
+  margin: 0.5vw;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.portfolio .container a, .portfolio .container a:active, .portfolio .container a:visited {
+  color: var(--defaultDark);
+  text-decoration: none;
+  font-weight: 300;
+  margin: 0.5vw;
+  font-size: 0.8vw;
+}
+.portfolio .container a:hover {
+  text-decoration: underline;
+}
+.portfolio .container:hover {
+  transform: scale(102%);
+}
+.portfolio iframe, .portfolio .iframe-cover {
+  border: none;
+  aspect-ratio: 16/9;
+  margin: 0.1vw;
+  border-radius: inherit;
+}
+.portfolio iframe {
+  pointer-events: none;
+  z-index: 1;
+}
+.portfolio .iframe-cover {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */
