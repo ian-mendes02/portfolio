@@ -1,4 +1,5 @@
 const slider = document.querySelectorAll('[data-theme-toggle="container"]');
+
 let theme = localStorage.getItem("theme");
 document.body.setAttribute("data-theme", theme);
 function setTheme(slider) {
@@ -22,6 +23,8 @@ function getPageData() {
 }
 
 document.onload = getPageData();
+
+
 
 const pages = document.getElementById("portfolio-pages");
 
