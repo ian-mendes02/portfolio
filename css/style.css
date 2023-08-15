@@ -76,6 +76,11 @@ body, html {
   overflow-x: hidden;
 }
 
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 section {
   position: relative;
   padding: 2.5vw 0;
@@ -158,7 +163,7 @@ mark {
   transition: 0.1s ease-out;
 }
 .topnav a:hover {
-  filter: brightness(125%);
+  filter: brightness(90%);
 }
 .topnav .content-default {
   justify-content: end;
@@ -213,9 +218,10 @@ mark {
 .profile .content .content-default span, .profile .content .content-default p {
   margin: 1vw 0;
   display: inline-flex;
+  text-align: center;
 }
 .profile .content .content-default p {
-  line-height: 64pt;
+  line-height: 24pt;
 }
 
 #profile-pic {
@@ -253,7 +259,7 @@ mark {
   cursor: pointer;
 }
 #navlinks button:hover {
-  filter: brightness(90%);
+  filter: brightness(125%);
   transform: scale(101%);
 }
 #navlinks button:active {
@@ -266,6 +272,7 @@ mark {
 
 .portfolio .content-default {
   flex-direction: column;
+  padding: 2.5vw 0;
 }
 .portfolio #portfolio-pages {
   flex-flow: row wrap;
@@ -274,14 +281,15 @@ mark {
   background-image: var(--boxBg);
   border-radius: 0.5vw;
   overflow: hidden;
-  width: 20vw;
+  width: 17.5vw;
   position: relative;
   user-select: none;
-  transition: 0.2s ease-out;
+  transition: 0.1s ease-out;
   backface-visibility: hidden;
   transform-origin: center center;
   margin: 0.5vw;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  padding: 0.25vw;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .portfolio .container a, .portfolio .container a:active, .portfolio .container a:visited {
   color: var(--defaultDark);
@@ -296,22 +304,14 @@ mark {
 .portfolio .container:hover {
   transform: scale(102%);
 }
-.portfolio iframe, .portfolio .iframe-cover {
-  border: none;
-  aspect-ratio: 16/9;
-  margin: 0.1vw;
-  border-radius: inherit;
-}
-.portfolio iframe {
-  pointer-events: none;
-  z-index: 1;
-}
-.portfolio .iframe-cover {
+.portfolio .thumbnail {
   cursor: pointer;
-  position: absolute;
-  bottom: 0;
-  z-index: 3;
   width: 100%;
+  aspect-ratio: 16/9;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: inherit;
 }
 
 /*# sourceMappingURL=style.css.map */
